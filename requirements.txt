@@ -1,0 +1,7 @@
+flask
+flask-restplus
+celery
+flower
+redis
+pymongo
+dnspython

@@ -1,0 +1,16 @@
+{% for message in get_flashed_messages() %}
+  <p style="color: red;">{{ message }}</p>
+{% endfor %}
+
+<h1>Welcome!</h1>
+<h4>Sorry for having such awesome UI (:</h4>
+
+<a href="list">Go for listing page</a>
+
+<hr>
+<form method="POST">
+    Name: <input id="name" name="name" type="text"> <br><br>
+    Height (in CM): <input id="height" name="height" type="number"> <br><br>
+    Weight (as KG): <input id="weight" name="weight" type="number"> <br><br>
+   <button type="submit" name="action">Submit for huge calculation</button>
+</form>

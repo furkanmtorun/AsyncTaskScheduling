@@ -1,0 +1,16 @@
+{% for message in get_flashed_messages() %}
+  <p style="color: red;">{{ message }}</p>
+{% endfor %}
+
+<h1>Welcome to Query Page!</h1>
+<h4>Sorry for having such awesome UI (:</h4>
+<a href="/">Go pack form page</a>
+
+<hr>
+<h3 style="color:red">Total number of documents: {{ list_result["n_document"] }}</h3>
+
+{% for document in list_result["documents"] %}
+<p> 
+    Your PID: {{ document.pid }} | Your Name: {{document.name}} | Your Result {{ document.bmi }}
+</p>
+{% endfor %}
