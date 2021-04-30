@@ -17,7 +17,7 @@ users_collection = db ["users"] # Colletion/Table
 # Setting up Flask and Celery
 app = Flask(__name__)
 app.config["SECRET_KEY"] = SECRET_KEY
-client = Celery(app.name, broker=CELERY_BROKER_URL)
+celery_client = Celery(app.name, broker=CELERY_BROKER_URL)
 
 # Create index page
 @app.route('/', methods=["GET", "POST"])
@@ -42,7 +42,7 @@ def list():
     list_result["documents"] = users_collection.find({})
     return render_template("list.html", list_result=list_result)
 
-@client.task
+@celery_client.task
 def bmi_calculation(data):
     time.sleep(60) # To make it more realistic
     pid, name, weight, height = data["pid"], data["name"], data["weight"], data["height"]
