@@ -27,16 +27,21 @@ Hence, here, asynchronous (`async`) task scheduling via microservices provide an
 
 **Microservices**
 
-During designing a sofware pipeline, **Microservice Architecture**, where the applications, modules/functions work independently, has showed up for the last decade.
+During designing a sofware pipeline, **Microservices Architecture**, where the applications, modules/functions work independently, has showed up for the last decade.
 
-In this way, contast to monolithic architecture, the functional parts of your whole work are splitted into smaller units. Those smaller units are dedicated to work on a specific tasks and they do their job well! 
+![Monolithic vs Microservice](https://user-images.githubusercontent.com/49681382/116817414-e617be00-ab6e-11eb-977a-3991cb4703b8.jpg)
+
+_Image source: https://dev.to/alex_barashkov/microservices-vs-monolith-architecture-4l1m_.
+
+In microservices architecture, contast to monolithic architecture, the functional parts of your whole work are splitted into smaller units. Those smaller units are dedicated to work on a specific tasks and they do their job well!
+
 While working they do not really know what the others perform however they have a common port/way of communication where they are able to talk to each other. 
 
 > For more about the microservices, you might check this blog post: https://medium.com/sciant/microservices-for-dummies-e55e428a5eef. 
 
 <br>
 
-> **Here is one real-world examples of async programming:**
+> **Here is one real-world examples of microservice architecture:**
 >
 > <a href="https://www.youtube.com/watch?v=7VCYBtx6h4g">In this F1 pitspot, the fastest one which only takes few seconds</a>, every single person works in a single task and does the best for that task!
 >
