@@ -32,14 +32,14 @@ During designing a sofware pipeline, **Microservice Architecture**, where the ap
 In this way, contast to monolithic architecture, the functional parts of your whole work are splitted into smaller units. Those smaller units are dedicated to work on a specific tasks and they do their job well! 
 While working they do not really know what the others perform however they have a common port/way of communication where they are able to talk to each other. 
 
->For more about the microservices, you might check this blog post: https://medium.com/sciant/microservices-for-dummies-e55e428a5eef. 
+> For more about the microservices, you might check this blog post: https://medium.com/sciant/microservices-for-dummies-e55e428a5eef. 
 
 <br>
 
 > **Here is one real-world examples of async programming:**
 >
-> [In this F1 pitspot, the fastest one which only takes few seconds])(https://www.youtube.com/watch?v=7VCYBtx6h4g), every single person works in a single task and does the best for that task!
-> 
+> <a href="https://www.youtube.com/watch?v=7VCYBtx6h4g">In this F1 pitspot, the fastest one which only takes few seconds</a>, every single person works in a single task and does the best for that task!
+>
 > ![Real-world example of async programming](https://j.gifs.com/r2ZpyW.gif)
 
 <br>
