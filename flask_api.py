@@ -1,14 +1,15 @@
 # Import
-from flask import Flask
-from flask_restplus import Api, Resource, fields
-from pymongo import MongoClient
-from celery import Celery
 import time
 import uuid
+from flask import Flask
+from celery import Celery
+from pymongo import MongoClient
+from flask_restplus import Api, Resource, fields
 
-# Define
+# Define required variables
 APP_SECRET_KEY = "AsyncTaskScheduling-FMT"
 CELERY_BROKER_URL = "redis://localhost:6379/0"
+MONGO_CLIENT_URL = "mongodb+srv://async_admin:async_admin@aws-mongodb-cluster0.y6ldx.mongodb.net/AsyncTaskScheduling?retryWrites=true&w=majority"
 
 # Setting up Flask, REST-API, Celery
 app = Flask(__name__)
@@ -16,13 +17,13 @@ api = Api(app, version="0.1", title="AsyncTaskScheduling-FMT", description="Asyn
 celery_client = Celery(app.name, broker=CELERY_BROKER_URL)
 
 # Connect MongoDB Atlas | Temporary account was used, so it is already destroyed :)
-db_client = MongoClient("mongodb+srv://async_admin:async_admin@aws-mongodb-cluster0.y6ldx.mongodb.net/AsyncTaskScheduling?retryWrites=true&w=majority")
+db_client = MongoClient(MONGO_CLIENT_URL)
 db = db_client["AsyncTaskScheduling"] # Database
 users_collection = db["users"] # Colletion/Table
 
 # Define namespaces for REST-API
-usersCollection = api.namespace("Users Operation Collection", description="Operations for Users")
-processCollection = api.namespace("Process Operation Collection", description="Operations for Process Details")
+usersCollection = api.namespace("usersCollection", description="Operations for Users")
+processCollection = api.namespace("processCollection", description="Operations for Process Details")
 
 # Define api models for users
 users_model = api.model("users", 
@@ -37,9 +38,15 @@ users_model = api.model("users",
 # Asyn - Time-consuming task via Celery
 @celery_client.task
 def bmi_calculation(data):
+    """Returns the body-mass index for given values and 
+    here, it mimics the time-consuming function
+
+    Args:
+        data (dict): Contains following keys `pid`, `name`, `height`, `weight`. 
+    """
     time.sleep(30) # To make it more realistic
     pid, name, weight, height = data["pid"], data["name"], data["weight"], data["height"]
-    data["bmi"] = int(weight) / ( (int(height)/100) ** 2 )
+    data["bmi"] = int(weight) / ((int(height) / 100) ** 2)
     users_collection.insert_one(data)
 
 # Users Collection Part

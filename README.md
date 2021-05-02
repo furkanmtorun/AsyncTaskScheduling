@@ -3,7 +3,7 @@
 # Redis
 redis-server --port 6380 --slaveof 127.0.0.1 6379
 
-# In the project folder
+# In the project folder for Flask UI
 celery worker -A flask_ui.celery_client -E --pool=solo -l info
 
 flower -A flask_ui.celery_client
