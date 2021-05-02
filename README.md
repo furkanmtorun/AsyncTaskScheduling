@@ -11,7 +11,7 @@
   - [🎨 Architecture of the pipeline](#-architecture-of-the-pipeline)
   - [🧵 Installation & Running](#-installation--running)
   - [💎 How the things go (aka. Results)?](#-how-the-things-go-aka-results)
-  - [📘 References & Similar Works](#-references--similar-works)
+  - [📘 References & Similar works](#-references--similar-works)
   - [🎈 Author & Feedback/Contribution](#-author--feedbackcontribution)
 
 <br><hr><br>
@@ -116,35 +116,49 @@ Here is the schematic view of my pipeline:
 <br>
 
 ## 🧵 Installation & Running
-TBA with prompts
+
+Here is classic way of installation and running.
+> Docker-compose file might come later!
+
+**Installation**
+
+- Install Redis:
+  - Visit offical document here: https://redis.io/topics/quickstart.
+  - If you are using Win10, you might check here: https://dev.to/divshekhar/how-to-install-redis-on-windows-10-3e99.
+- To install the required packages:
+
+    `pip install -r requirements.txt`
+
+**Running**
+
+- Start redis:
+    
+    `redis-server --port 6380 --slaveof 127.0.0.1 6379`
+
+- Execute `Celery`, `Flower` and our `flask_api` file inside the project folder:
+  
+    `celery worker -A flask_api.celery_client -E`
+
+    > If you are using Win10 and face some problems with Celery, try the following insted:
+
+    `celery worker -A flask_api.celery_client -E --pool=solo -l info`
+
+    `flower -A flask_api.celery_client`
+
+    > Then, you can visit http://localhost:5555/
+
+    `python flask_api.py`
+
+    > Now, time to open our REST-Api on http://localhost:5000/
 
 <br>
 
 ## 💎 How the things go (aka. Results)?
 TBA with images
 
-```
-    # Redis
-    redis-server --port 6380 --slaveof 127.0.0.1 6379
-
-    # In the project folder for Flask UI
-    celery worker -A flask_ui.celery_client -E --pool=solo -l info
-
-    flower -A flask_ui.celery_client
-
-    python flask_ui.py
-
-    # In the project folder for REST-API
-    celery worker -A flask_api.celery_client -E --pool=solo -l info
-
-    flower -A flask_api.celery_client
-
-    python flask_api.py
-```
-
 <br><hr><br>
 
-## 📘 References & Similar Works
+## 📘 References & Similar works
 
 1. Miranda, L. (2019). Distill: Why do we need Flask, Celery, and Redis? (with McDonalds in Between). Retrieved 2 May 2021, from https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/
 2. Smyth, P. (2018). Creating Web APIs with Python and Flask . Programming Historian. Retrieved from https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask
@@ -153,11 +167,7 @@ TBA with images
 5. Costa, R. (2021). Asynchronous vs. Synchronous Programming: When to Use What. Retrieved 2 May 2021, from https://www.outsystems.com/blog/posts/asynchronous-vs-synchronous-programming/
 6. Vassilev, K. (2019). Microservices for Dummies. Retrieved 2 May 2021, from https://medium.com/sciant/microservices-for-dummies-e55e428a5eef
 
-<br>
-
-> See other similar works
-
-<br>
+**See other similar works:**
 
 - Herman, M. (2021). Asynchronous Tasks with Flask and Redis Queue. (2021). Retrieved 2 May 2021, from https://testdriven.io/blog/asynchronous-tasks-with-flask-and-redis-queue/
 - Python Celery & RabbitMQ Tutorial (Demo, Source Code). (2016). Retrieved 2 May 2021, from https://tests4geeks.com/blog/python-celery-rabbitmq-tutorial/
