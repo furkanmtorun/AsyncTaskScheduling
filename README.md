@@ -40,7 +40,7 @@ While working they do not really know what the others perform however they have 
 >
 > <a href="https://www.youtube.com/watch?v=7VCYBtx6h4g">In this F1 pitspot, the fastest one which only takes few seconds</a>, every single person works in a single task and does the best for that task!
 >
-> ![Real-world example of async programming](https://j.gifs.com/r2ZpyW.gif)
+> ![Real-world example of async programming](https://github.com/furkanmtorun/AsyncTaskScheduling/blob/flask_ui/real_world_microServices_f1.gif?raw=true)
 
 <br>
 
@@ -95,9 +95,23 @@ Maybe you might asking why we need this or what are the real-life examples? Actu
 <br><hr><br>
 
 ## 🎨 Architecture of the pipeline
-TBA with images
 
-For REST-API (using Swagger UI): Flask RESTPlus-API | See my post, https://github.com/furkanmtorun/Flask-RESTPlusAPI
+Here is the schematic view of my pipeline:
+![pipeline](https://user-images.githubusercontent.com/49681382/116816533-f5950800-ab6a-11eb-8734-c465f4ee2326.png)
+
+**Technologies used:**
+
+| Name | Description | Link |
+|-|-|-|
+| Flask | Python micro web-framework | https://flask.palletsprojects.com/en/1.1.x/ |
+| Flask-RESTPlus | Extension for Flask that adds support for quickly building REST APIs | https://flask-restplus.readthedocs.io/en/stable/ |
+| Celery | Asynchronous task queue or job queue package for Python | https://docs.celeryproject.org/en/stable/ |
+| Flower | Tool for monitoring and administrating Celery clusters | https://flower.readthedocs.io/en/latest/ |
+| Redis | In-memory data structure store, a distributed, key–value database | https://redis.io/ |
+| MongoDB | Document-oriented NoSQL database program | https://www.mongodb.com/python |
+
+
+> For use of Flask-RESTPlus extension (using Swagger UI), you might visit my previous repo and post: https://github.com/furkanmtorun/Flask-RESTPlusAPI.
 
 <br>
 
@@ -149,6 +163,7 @@ TBA with images
 - Python Celery & RabbitMQ Tutorial (Demo, Source Code). (2016). Retrieved 2 May 2021, from https://tests4geeks.com/blog/python-celery-rabbitmq-tutorial/
 - Gori, R. (2020). Asynchronous Tasks Using Flask, Redis and Celery. (2021). Retrieved 2 May 2021, from https://stackabuse.com/asynchronous-tasks-using-flask-redis-and-celery/
 - Bhavani's Portfolio. (2021). Retrieved 2 May 2021, from https://bhavaniravi.com/blog/asynchronous-task-execution-in-python/
+- Januzaj, V. (2021). Asynchronous tasks in Python with Celery + RabbitMQ + Redis. Retrieved 2 May 2021, from https://levelup.gitconnected.com/asynchronous-tasks-in-python-with-celery-rabbitmq-redis-480f6e506d76
 
 ## 🎈 Author & Feedback/Contribution
 
