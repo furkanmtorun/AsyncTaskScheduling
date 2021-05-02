@@ -19,14 +19,14 @@ celery_client = Celery(app.name, broker=CELERY_BROKER_URL)
 # Connect MongoDB Atlas | Temporary account was used, so it is already destroyed :)
 db_client = MongoClient(MONGO_CLIENT_URL)
 db = db_client["AsyncTaskScheduling"] # Database
-users_collection = db["users"] # Colletion/Table
+calculations_collection = db["calculations"] # Colletion/Table
 
 # Define namespaces for REST-API
-usersCollection = api.namespace("usersCollection", description="Operations for Users")
-processCollection = api.namespace("processCollection", description="Operations for Process Details")
+calculationsEP = api.namespace("calculationsEP", description="Operations for Calculations")
+calculationEP = api.namespace("calculationEP", description="Operations for Single Calculation")
 
-# Define api models for users
-users_model = api.model("users", 
+# Define api models for calculations
+calculations_model = api.model("calculations", 
         {
             "pid": fields.Integer(description="PID", example="73694a4c-e790-4015-b97c-ebaad83280f2", readonly=True),
             "name": fields.String(description="Full name", example="Someone Else", required=True),
@@ -47,46 +47,46 @@ def bmi_calculation(data):
     time.sleep(30) # To make it more realistic
     pid, name, weight, height = data["pid"], data["name"], data["weight"], data["height"]
     data["bmi"] = int(weight) / ((int(height) / 100) ** 2)
-    users_collection.insert_one(data)
+    calculations_collection.insert_one(data)
 
-# Users Collection Part
-@usersCollection.route("/")
-@usersCollection.response(200, "Successful operation!")
-@usersCollection.response(500, "Internal error somewhere in the code")
-class usersCollection(Resource):
+# calculations Collection Part
+@calculationsEP.route("/")
+@calculationsEP.response(200, "Successful operation!")
+@calculationsEP.response(500, "Internal error somewhere in the code")
+class calculationsEP(Resource):
     def get(self):
-        users_list = []
-        query_result = users_collection.find({}, {'_id': False})
+        calculations_list = []
+        query_result = calculations_collection.find({}, {'_id': False})
         for result in query_result:
-            users_list.append(result)
-        return users_list
+            calculations_list.append(result)
+        return calculations_list
 
-    @usersCollection.expect(users_model, validate=True)
+    @calculationsEP.expect(calculations_model, validate=True)
     def post(self):
         data = api.payload
         data["pid"] = str(uuid.uuid4())
         bmi_calculation.apply_async(args=[data])
         return f"Your work is submitted with an PID of {data['pid']}"
 
-# Individual process operation
-@processCollection.route("/<string:pid>")
-@processCollection.response(200, "Success")
-@processCollection.response(500, "Internal error somewhere in the code")
-class processByPID(Resource):
-    @processCollection.doc(params={"pid":"ID number of the process"})
+# Individual calculation operation
+@calculationEP.route("/<string:pid>")
+@calculationEP.response(200, "Success")
+@calculationEP.response(500, "Internal error somewhere in the code")
+class calculationByPID(Resource):
+    @calculationEP.doc(params={"pid":"ID number of the calculation"})
     def get(self, pid):
         finding_list = []
-        query_result = users_collection.find({'pid': pid}, {'_id': False})
+        query_result = calculations_collection.find({'pid': pid}, {'_id': False})
         for result in query_result:
             finding_list.append(result)
         if len(finding_list) > 0:
             return finding_list
         else:
-            return f"No such process with ID of {pid}"
+            return f"No such calculation with ID of {pid}"
 
-    @processCollection.doc(params={"pid":"ID number of the process"})
+    @calculationEP.doc(params={"pid":"ID number of the calculation"})
     def delete(self, pid):
-        users_collection.delete_one({"pid": pid})
+        calculations_collection.delete_one({"pid": pid})
         return f"The entry with ID {pid} will be deleted"
 
 # Run
