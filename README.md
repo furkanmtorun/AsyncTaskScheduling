@@ -110,6 +110,7 @@ Here is the schematic view of my pipeline:
 | Redis | In-memory data structure store, a distributed, key–value database | https://redis.io/ |
 | MongoDB | Document-oriented NoSQL database program | https://www.mongodb.com/python |
 
+<br>
 
 > For use of Flask-RESTPlus extension (using Swagger UI), you might visit my previous repo and post: https://github.com/furkanmtorun/Flask-RESTPlusAPI.
 
@@ -137,19 +138,19 @@ Here is classic way of installation and running.
 
 - Execute `Celery`, `Flower` and our `flask_api` file inside the project folder:
   
-    `celery worker -A flask_api.celery_client -E`
+    - `celery worker -A flask_api.celery_client -E`
 
-    > If you are using Win10 and face some problems with Celery, try the following insted:
+        > If you are using Win10 and face some problems with Celery, try the following insted:
 
-    `celery worker -A flask_api.celery_client -E --pool=solo -l info`
+        `celery worker -A flask_api.celery_client -E --pool=solo -l info`
 
-    `flower -A flask_api.celery_client`
+    - `flower -A flask_api.celery_client`
 
-    > Then, you can visit http://localhost:5555/
+        > Then, you can visit http://localhost:5555/
 
-    `python flask_api.py`
+    - `python flask_api.py`
 
-    > Now, time to open our REST-Api on http://localhost:5000/
+        > Now, time to open our REST-Api on http://localhost:5000/
 
 <br>
 
@@ -182,6 +183,6 @@ TBA with images
 - Furkan M. Torun
 - Mail: [furkanmtorun@gmail.com](mailto:furkanmtorun@gmail.com) 
 - Academia: [Google Scholar Profile](https://scholar.google.com/citations?user=d5ZyOZ4AAAAJ) 
-- Website: furkanmtorun.github.io
+- Website: [furkanmtorun.github.io](https://furkanmtorun.github.io)
 
 Moreover, please do not hesitate to comment via `openning an issue via GitHub` if you have any suggestion or feedback!
