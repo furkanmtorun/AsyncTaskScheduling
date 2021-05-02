@@ -170,7 +170,7 @@ _Our Flask RESTPlus API page overview_
 Here, in our case, `bmi_calculation()` function mimics a time-consuming process. Once the user submit a new entry with `name`, `weight` and `height`, it automatically add this request to query via message broker or queue system Redis and it sends to Celery workers to be processed and it returns a unique `pid`. Once the result is ready, it is saved into MongoDB Atlas database to operate CRUD operations on the API (getting the list of calculations, deleting etc.). 
 
 <details>
-    <summary><b>👇🥽 If you wonder the details, all is explained with screenshots!</b></summary>
+    <summary><b>✨ If you wonder the details, all is explained with screenshots! 👇</b></summary>
     <p>
         <img src="https://user-images.githubusercontent.com/49681382/116817560-92f23b00-ab6f-11eb-84c4-52b7058f3198.png" alt="Flower-0">
         <img src="https://user-images.githubusercontent.com/49681382/116817775-b8cc0f80-ab70-11eb-8b1a-d1f1194706b9.png" alt="image">
@@ -181,9 +181,11 @@ Here, in our case, `bmi_calculation()` function mimics a time-consuming process.
         <img src="https://user-images.githubusercontent.com/49681382/116817959-85d64b80-ab71-11eb-8a0b-a729f5e9dfb2.png" alt="Screenshot_5">
         <img src="https://user-images.githubusercontent.com/49681382/116817960-866ee200-ab71-11eb-88a0-6afdbff4c5c5.png" alt="Screenshot_6">
     </p>
-</details>
+</details><br>
 
+So, now, our users can fetch easily the calculated bmi values (in background) by using given `pid` later time.
 
+That's all for now!
 
 <br><hr><br>
 
