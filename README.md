@@ -156,11 +156,34 @@ Here is classic way of installation and running.
     - `python flask_api.py`
 
         > Now, time to open our REST-Api on http://localhost:5000/
-
 <br>
 
 ## 💎 How the things go (aka. Results)?
-TBA with images
+
+In our simple pipeline, we provide a REST API for our user where they can calculate the body-mass index (bmi) of a person. So, they can list all of the calculations or post a new one under the end point namely `calculationsEP Operations for Calculations` while they can get the details of a calculation using unique process ID `pid` or delete it via `pid`. 
+
+<img src="https://user-images.githubusercontent.com/49681382/116817566-a1d8ed80-ab6f-11eb-8054-9121efab4a48.png" alt="page-overview"> 
+
+_Our Flask RESTPlus API page overview_
+
+
+Here, in our case, `bmi_calculation()` function mimics a time-consuming process. Once the user submit a new entry with `name`, `weight` and `height`, it automatically add this request to query via message broker or queue system Redis and it sends to Celery workers to be processed and it returns a unique `pid`. Once the result is ready, it is saved into MongoDB Atlas database to operate CRUD operations on the API (getting the list of calculations, deleting etc.). 
+
+<details>
+    <summary><b>👇🥽 If you wonder the details, all is explained with screenshots!</b></summary>
+    <p>
+        <img src="https://user-images.githubusercontent.com/49681382/116817560-92f23b00-ab6f-11eb-84c4-52b7058f3198.png" alt="Flower-0">
+        <img src="https://user-images.githubusercontent.com/49681382/116817775-b8cc0f80-ab70-11eb-8b1a-d1f1194706b9.png" alt="image">
+        <img src="https://user-images.githubusercontent.com/49681382/116817793-d26d5700-ab70-11eb-9f53-08fbdb80d88a.png" alt="posting">
+        <img src="https://user-images.githubusercontent.com/49681382/116817954-84a51e80-ab71-11eb-97d0-37cc1e62023a.png" alt="Screenshot_2">
+        <img src="https://user-images.githubusercontent.com/49681382/116817956-853db500-ab71-11eb-8b2b-0810352c7ccd.png" alt="Screenshot_3">
+        <img src="https://user-images.githubusercontent.com/49681382/116817958-85d64b80-ab71-11eb-97df-ed8f527cfedf.png" alt="Screenshot_4">
+        <img src="https://user-images.githubusercontent.com/49681382/116817959-85d64b80-ab71-11eb-8a0b-a729f5e9dfb2.png" alt="Screenshot_5">
+        <img src="https://user-images.githubusercontent.com/49681382/116817960-866ee200-ab71-11eb-88a0-6afdbff4c5c5.png" alt="Screenshot_6">
+    </p>
+</details>
+
+
 
 <br><hr><br>
 
