@@ -40,7 +40,7 @@ While working they do not really know what the others perform however they have 
 >
 > In this F1 pitspot, the fastest one which only takes 1.98 seconds, every single person works in a single task and does the best for that task!
 >
-> [![Real-world example of async programming](https://j.gifs.com/r2ZpyW.gif)](https://www.youtube.com/watch?v=7VCYBtx6h4g)
+> ![Real-world example of async programming](https://j.gifs.com/r2ZpyW.gif)](https://www.youtube.com/watch?v=7VCYBtx6h4g)
 
 <br>
 
@@ -69,7 +69,7 @@ Maybe you might asking why we need this or what are the real-life examples? Actu
     In this scenario, every customer is getting  reference number after their ordering. While the order is on its own way, the customers can just relax and control the dashboard for the status of their orders while the crew are working on other orders.
     <img src="https://ljvmiranda921.github.io/assets/png/flask-celery-redis/scene_03.svg">
     <br><br>
-  Please, <a href="https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/"> check this awesome blog post here</a> to see the rest and to get the issue in the easiest way! (Even worthy to look at the cartoons!)
+    Please, <a href="https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/"> check this awesome blog post here</a> to see the rest and to get the issue in the easiest way! (Even worthy to look at the cartoons!)
     </p>
 </details>
 
