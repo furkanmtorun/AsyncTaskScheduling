@@ -38,9 +38,9 @@ While working they do not really know what the others perform however they have 
 
 > **Here is one real-world examples of async programming:**
 >
-> In this F1 pitspot, the fastest one which only takes 1.98 seconds, every single person works in a single task and does the best for that task!
->
-> ![Real-world example of async programming](https://j.gifs.com/r2ZpyW.gif)](https://www.youtube.com/watch?v=7VCYBtx6h4g)
+> [In this F1 pitspot, the fastest one which only takes few seconds])(https://www.youtube.com/watch?v=7VCYBtx6h4g), every single person works in a single task and does the best for that task!
+> 
+> ![Real-world example of async programming](https://j.gifs.com/r2ZpyW.gif)
 
 <br>
 
