@@ -19,25 +19,25 @@ Simple Pipeline for Asynchronous Task Scheduling in Python via Flask + Flask-RES
 <br><hr><br>
 
 ## 💡 TL;DR: What is this at all?
-Together with advancements in computing capacity and increasing trend in working on the large scale datasets, in some projects, we might need to execute time-consuming and/or heavy functions upon the plenty of requests coming from the client side.
+Together with advancements in computing capacity and increasing trends in working on large-scale datasets, in some projects, we might need to execute time-consuming and/or heavy functions upon the plenty of requests coming from the client side.
 
-So, we shall to run them in background while still getting new requests from the client and finally, we should get back the result later once the process is done. 
+So, we shall run them in the background while still getting new requests from the client and finally, we should get back the result later once the process is done.
 
-Hence, here, asynchronous (`async`) task scheduling via microservices provide an well offer to handle our issue!
+Hence, here, asynchronous (`async`) task scheduling via microservices provides a good offer to handle our issue!
 
 ## 🧪 What are async tasks and microservices?
 
 **Microservices**
 
-During designing a sofware pipeline, **Microservices Architecture**, where the applications, modules/functions work independently, has showed up for the last decade.
+During designing a software pipeline, **Microservices Architecture**, where the applications, modules/functions work independently, has shown up for the last decade.
 
-![Monolithic vs Microservice](https://user-images.githubusercontent.com/49681382/116817414-e617be00-ab6e-11eb-977a-3991cb4703b8.jpg)
+<img height=270 width=500 src="https://user-images.githubusercontent.com/49681382/116817414-e617be00-ab6e-11eb-977a-3991cb4703b8.jpg" alt="Monolithic vs Microservice">
 
 _Image source: https://dev.to/alex_barashkov/microservices-vs-monolith-architecture-4l1m_.
 
-In microservices architecture, contast to monolithic architecture, the functional parts of your whole work are splitted into smaller units. Those smaller units are dedicated to work on a specific tasks and they do their job well!
+In a microservices architecture, in contrast to monolithic architecture, the functional parts of your whole work are split into smaller units. Those smaller units are dedicated to working on specific tasks and they do their job well!
 
-While working they do not really know what the others perform however they have a common port/way of communication where they are able to talk to each other. 
+While working they do not know what the others perform however they have a common port/way of communication where they are able to talk to each other.
 
 > For more about the microservices, you might check this blog post: https://medium.com/sciant/microservices-for-dummies-e55e428a5eef. 
 
@@ -45,7 +45,7 @@ While working they do not really know what the others perform however they have 
 
 > **Here is one real-world examples of microservice architecture:**
 >
-> <a href="https://www.youtube.com/watch?v=7VCYBtx6h4g">In this F1 pitspot, the fastest one which only takes few seconds</a>, every single person works in a single task and does the best for that task!
+> <a href="https://www.youtube.com/watch?v=7VCYBtx6h4g">In this F1 pit spot, the fastest one which only takes few seconds</a>, every single person works in a single task and does the best for that task!
 >
 > ![Real-world example of async programming](https://github.com/furkanmtorun/AsyncTaskScheduling/blob/flask_ui/real_world_microServices_f1.gif?raw=true)
 
@@ -53,20 +53,20 @@ While working they do not really know what the others perform however they have 
 
 **Asynchronous (async) Programming**  
 
-Let's get start with synchronous one. In this case, the tasks or the jobs are performed once at a time. So, to be able to work on the 2nd (following) task, first of all, 1st (previous) task has to be completed. So, you have to wait for a task to complete to go for the next one.
+Let's get started with the synchronous one. In this case, the tasks, or the jobs are performed once at a time. So, to be able to work on the 2nd (following) task, first of all, the 1st (previous) task has to be completed. So, you have to wait for a task to complete to go for the next one.
 
-By contrast, in async programming, the pipeline can go with any process without waiting for completion of previous task if they are independent from each other. Hence, you might catch several requests at a time simulatenously.
+By contrast, in async programming, the pipeline can go with any process without waiting for the completion of the previous task if they are independent of each other. Hence, you might catch several requests at a time simultaneously.
 
 ![Sync. vs. Async](https://www.baeldung.com/wp-content/uploads/sites/4/2020/07/sync.png)
 
 _Image resource: https://www.baeldung.com/cs/async-vs-multi-threading_.
 
 ## 💭 Use cases (aka. Real-life examples)
-Maybe you might asking why we need this or what are the real-life examples? Actually, currently, several processes are going through in async way even we do not realize. 
+Maybe you might be asking why we need this or what are the real-life examples? So, currently, several processes are going through in async way even we do not realize. 
 
-> Here are the some real-life examples:
+> Here are some real-life examples:
 >
-> _If you have more (and/or clearer) examples, please just [reach me out](#-author--feedbackcontribution)._
+> _If you have more (and/or clearer) examples, please just [reach out to me](#-author--feedbackcontribution)._
 
 <br>
 
@@ -104,7 +104,7 @@ Maybe you might asking why we need this or what are the real-life examples? Actu
 ## 🎨 Architecture of the pipeline
 
 Here is the schematic view of my pipeline:
-![pipeline](https://user-images.githubusercontent.com/49681382/116816533-f5950800-ab6a-11eb-8734-c465f4ee2326.png)
+![pipeline](https://user-images.githubusercontent.com/49681382/116857601-c1225a00-ac05-11eb-8be2-5fbe1ac5eda5.png)
 
 **Technologies used:**
 
@@ -120,6 +120,8 @@ Here is the schematic view of my pipeline:
 <br>
 
 > For use of Flask-RESTPlus extension (using Swagger UI), you might visit my previous repo and post: https://github.com/furkanmtorun/Flask-RESTPlusAPI.
+
+> **Reminder:** Do not forget to change `MONGO_CLIENT_URL` for your setup. For MongoDB, you might give a try to use [MongoDB Atlas](https://cloud.mongodb.com/).
 
 <br>
 
@@ -147,7 +149,7 @@ Here is classic way of installation and running.
   
     - `celery worker -A flask_api.celery_client -E`
 
-        > If you are using Win10 and face some problems with Celery, try the following insted:
+        > If you are using Win10 and face some problems with Celery, try the following instead:
 
         `celery worker -A flask_api.celery_client -E --pool=solo -l info`
 
@@ -162,17 +164,17 @@ Here is classic way of installation and running.
 
 ## 💎 How the things go (aka. Results)?
 
-In our simple pipeline, we provide a REST API for our user where they can calculate the body-mass index (bmi) of a person. So, they can list all of the calculations or post a new one under the end point namely `calculationsEP Operations for Calculations` while they can get the details of a calculation using unique process ID `pid` or delete it via `pid`. 
+In our simple pipeline, we provide a REST API for our users where they can calculate the body-mass index (BMI) of a person. So, they can list all of the calculations or post a new one under the end point namely `calculationsEP Operations for Calculations` while they can get the details of a calculation using unique process ID `pid` or delete it via `pid`. 
 
 <img src="https://user-images.githubusercontent.com/49681382/116817566-a1d8ed80-ab6f-11eb-8054-9121efab4a48.png" alt="page-overview"> 
 
 _Our Flask RESTPlus API page overview_
 
 
-Here, in our case, `bmi_calculation()` function mimics a time-consuming process. Once the user submit a new entry with `name`, `weight` and `height`, it automatically add this request to query via message broker or queue system Redis and it sends to Celery workers to be processed and it returns a unique `pid`. Once the result is ready, it is saved into MongoDB Atlas database to operate CRUD operations on the API (getting the list of calculations, deleting etc.). 
+Here, in our case, `bmi_calculation()` function mimics a time-consuming process. Once the user submits a new entry with `name`, `weight` and `height`, it automatically add this request to query via message broker or queue system Redis and it forwards them to Celery workers to be processed and it returns a unique `pid`. Once the result is ready, it is saved into MongoDB Atlas database to operate CRUD operations on the API (getting the list of calculations, deleting, etc.). 
 
 <details>
-    <summary><b>✨ If you wonder the details, all is explained with screenshots! 👇</b></summary>
+    <summary><b>✨ If you wonder about the details, all is explained with screenshots! 👇</b></summary>
     <p>
         <img src="https://user-images.githubusercontent.com/49681382/116817560-92f23b00-ab6f-11eb-84c4-52b7058f3198.png" alt="Flower-0">
         <img src="https://user-images.githubusercontent.com/49681382/116817775-b8cc0f80-ab70-11eb-8b1a-d1f1194706b9.png" alt="image">
@@ -185,7 +187,7 @@ Here, in our case, `bmi_calculation()` function mimics a time-consuming process.
     </p>
 </details><br>
 
-So, now, our users can fetch easily the calculated bmi values (in background) by using given `pid` later time.
+So, now, our users can fetch easily the calculated BMI values (in the background) by using the given `pid` later time.
 
 That's all for now!
 
@@ -217,4 +219,4 @@ That's all for now!
 - Academia: [Google Scholar Profile](https://scholar.google.com/citations?user=d5ZyOZ4AAAAJ) 
 - Website: [furkanmtorun.github.io](https://furkanmtorun.github.io)
 
-Moreover, please do not hesitate to comment via `openning an issue via GitHub` if you have any suggestion or feedback!
+Moreover, please do not hesitate to comment via opening an issue via GitHub if you have any suggestions or feedback!
