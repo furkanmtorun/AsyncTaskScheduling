@@ -57,7 +57,7 @@ Let's get started with the synchronous one. In this case, the tasks, or the jobs
 
 By contrast, in async programming, the pipeline can go with any process without waiting for the completion of the previous task if they are independent of each other. Hence, you might catch several requests at a time simultaneously.
 
-![Sync. vs. Async](https://www.baeldung.com/wp-content/uploads/sites/4/2020/07/sync.png)
+<img src="https://www.baeldung.com/wp-content/uploads/sites/4/2020/07/sync.png" alt="Sync. vs. Async" height=240 width=350>
 
 _Image resource: https://www.baeldung.com/cs/async-vs-multi-threading_.
 
@@ -177,13 +177,21 @@ Here, in our case, `bmi_calculation()` function mimics a time-consuming process.
     <summary><b>✨ If you wonder about the details, all is explained with screenshots! 👇</b></summary>
     <p>
         <img src="https://user-images.githubusercontent.com/49681382/116817560-92f23b00-ab6f-11eb-84c4-52b7058f3198.png" alt="Flower-0">
+        <i>Flower UI (no task provided yet)</i><br>
         <img src="https://user-images.githubusercontent.com/49681382/116817775-b8cc0f80-ab70-11eb-8b1a-d1f1194706b9.png" alt="image">
+        <i>Documents (Entries) of MongoDB Atlas Collection</i><br>
         <img src="https://user-images.githubusercontent.com/49681382/116817793-d26d5700-ab70-11eb-9f53-08fbdb80d88a.png" alt="posting">
+        <i>New calculation post in our REST-API</i><br>
         <img src="https://user-images.githubusercontent.com/49681382/116817954-84a51e80-ab71-11eb-97d0-37cc1e62023a.png" alt="Screenshot_2">
-        <img src="https://user-images.githubusercontent.com/49681382/116817956-853db500-ab71-11eb-8b2b-0810352c7ccd.png" alt="Screenshot_3">
+        <i>PID for our calculation returned upon the post</i><br>
         <img src="https://user-images.githubusercontent.com/49681382/116817958-85d64b80-ab71-11eb-97df-ed8f527cfedf.png" alt="Screenshot_4">
-        <img src="https://user-images.githubusercontent.com/49681382/116817959-85d64b80-ab71-11eb-8a0b-a729f5e9dfb2.png" alt="Screenshot_5">
+        <i>Several new calculations are posted and see how their status in Celery look like on Flower</i><br>
+        <img src="https://user-images.githubusercontent.com/49681382/116817956-853db500-ab71-11eb-8b2b-0810352c7ccd.png" alt="Screenshot_3">
+        <i>Once several new posts are submitted, see the queue in Redis on Flower</i><br>
         <img src="https://user-images.githubusercontent.com/49681382/116817960-866ee200-ab71-11eb-88a0-6afdbff4c5c5.png" alt="Screenshot_6">
+        <i>The states of all Tasks in Celery on Flower UI</i><br>
+        <img src="https://user-images.githubusercontent.com/49681382/116817959-85d64b80-ab71-11eb-8a0b-a729f5e9dfb2.png" alt="Screenshot_5">
+        <i>Results of new calculations posted are shown in MongoDB Atlas</i>
     </p>
 </details><br>
 
