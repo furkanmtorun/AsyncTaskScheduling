@@ -14,6 +14,7 @@ Simple Pipeline for Asynchronous Task Scheduling in Python via Flask + Flask-RES
   - [🧵 Installation & Running](#-installation--running)
   - [💎 How the things go (aka. Results)?](#-how-the-things-go-aka-results)
   - [📘 References & Similar works](#-references--similar-works)
+  - [👁‍🗨 TO-DO List](#-to-do-list)
   - [🎈 Author & Feedback/Contribution](#-author--feedbackcontribution)
 
 <br><hr><br>
@@ -119,6 +120,8 @@ Here is the schematic view of my pipeline:
 
 <br>
 
+> If you wonder the comparison of several `brokers`, please visit this https://docs.celeryproject.org/en/stable/getting-started/brokers/index.html page by Celery offical docs.  
+
 > For use of Flask-RESTPlus extension (using Swagger UI), you might visit my previous repo and post: https://github.com/furkanmtorun/Flask-RESTPlusAPI.
 
 > **Reminder:** Do not forget to change `MONGO_CLIENT_URL` for your setup. For MongoDB, you might give a try to use [MongoDB Atlas](https://cloud.mongodb.com/).
@@ -217,6 +220,14 @@ That's all for now!
 - Gori, R. (2020). Asynchronous Tasks Using Flask, Redis and Celery. (2021). Retrieved 2 May 2021, from https://stackabuse.com/asynchronous-tasks-using-flask-redis-and-celery/
 - Bhavani's Portfolio. (2021). Retrieved 2 May 2021, from https://bhavaniravi.com/blog/asynchronous-task-execution-in-python/
 - Januzaj, V. (2021). Asynchronous tasks in Python with Celery + RabbitMQ + Redis. Retrieved 2 May 2021, from https://levelup.gitconnected.com/asynchronous-tasks-in-python-with-celery-rabbitmq-redis-480f6e506d76
+- Bruijn, L. (2021). Distributed Task Queues With Django, RabbitMQ, and Celery. Retrieved 3 May 2021, from https://betterprogramming.pub/distributed-task-queues-with-celery-rabbitmq-django-703c7857fc17
+
+## 👁‍🗨 TO-DO List
+
+- [ ] Elaborate the README file/post
+- [ ] Prepare a `docker-compose.yml` file for containerization
+- [ ] Enable re-trying the failed celery tasks
+- [ ] Write tests via `pytest` & integrate Github Actions for CI/CD
 
 ## 🎈 Author & Feedback/Contribution
 
