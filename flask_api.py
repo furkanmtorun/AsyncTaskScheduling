@@ -16,6 +16,8 @@ MONGO_CLIENT_URL = "mongodb+srv://async_admin:async_admin@aws-mongodb-cluster0.y
 app = Flask(__name__)
 api = Api(app, version="0.1", title="AsyncTaskScheduling-FMT", description="AsyncTaskScheduling-FMT")
 celery_client = Celery(app.name, broker=CELERY_BROKER_URL)
+# To configure celery_client
+# celery_client.conf.update(enable_utc=True, timezone='Europe/Istanbul')
 
 # Connect MongoDB Atlas
 db_client = MongoClient(MONGO_CLIENT_URL)
