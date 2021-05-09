@@ -1,6 +1,6 @@
-# Simple Pipeline for Asynchronous Task Scheduling
+# 🚀 Pipeline for Asynchronous Task Scheduling
 
-Simple Pipeline for Asynchronous Task Scheduling in Python via Flask + Flask-RESTPlus (API) + Redis + Celery + MongoDB
+Pipeline for Asynchronous Task Scheduling in Python via Flask-RESTPlus (API) + Redis + Celery + MongoDB
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-green)](https://github.com/furkanmtorun/AsyncTaskScheduling/blob/master/LICENSE) 
 
